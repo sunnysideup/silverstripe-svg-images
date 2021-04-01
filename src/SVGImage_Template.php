@@ -5,11 +5,9 @@ namespace Sunnysideup\SilverStripeSvg;
 use StevieMayhew\SilverStripeSVG\SVGTemplate;
 
 // only extend if exists
-if(class_exists(SVGTemplate::class)) {
-
+if (class_exists(SVGTemplate::class)) {
     class SVGImage_Template extends SVGTemplate
     {
-
         public function __construct($name, $id)
         {
             return parent::__construct($name, $id);
@@ -27,7 +25,5 @@ if(class_exists(SVGTemplate::class)) {
             //$this->subfolders[] = trim($folder, DIRECTORY_SEPARATOR);
             return $this;
         }
-
     }
-
 }
