@@ -1,7 +1,6 @@
 ---
 Name: sunnysvgimages
-After:
-  - 'framework/*'
+After: '*'
 ---
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
