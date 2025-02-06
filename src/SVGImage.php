@@ -10,7 +10,7 @@ class SVGImage extends Image
 
     public function getFileType()
     {
-        if ($this->getExtension() === 'svg') {
+        if ($this->IsSVG()) {
             return 'SVG image - good for line drawings';
         }
 
@@ -55,20 +55,20 @@ class SVGImage extends Image
      *
      * @return string
      */
-//    public function getTag() {
-//        if($this->exists()) {
-//            $url = $this->getURL();
-//            $title = ($this->Title) ? $this->Title : $this->Filename;
-//            if($this->Title) {
-//                $title = Convert::raw2att($this->Title);
-//            } else {
-//                if(preg_match("/([^\/]*)\.[a-zA-Z0-9]{1,6}$/", $title, $matches)) {
-//                    $title = Convert::raw2att($matches[1]);
-//                }
-//            }
-//            return "<img src=\"$url\" alt=\"$title\" test />";
-//        }
-//    }
+    //    public function getTag() {
+    //        if($this->exists()) {
+    //            $url = $this->getURL();
+    //            $title = ($this->Title) ? $this->Title : $this->Filename;
+    //            if($this->Title) {
+    //                $title = Convert::raw2att($this->Title);
+    //            } else {
+    //                if(preg_match("/([^\/]*)\.[a-zA-Z0-9]{1,6}$/", $title, $matches)) {
+    //                    $title = Convert::raw2att($matches[1]);
+    //                }
+    //            }
+    //            return "<img src=\"$url\" alt=\"$title\" test />";
+    //        }
+    //    }
 
     /**
      * Scale image proportionally to fit within the specified bounds
@@ -79,7 +79,7 @@ class SVGImage extends Image
      */
     public function Fit($width, $height)
     {
-        if ($this->getExtension() === 'svg') {
+        if ($this->IsSVG()) {
             return $this;
         }
 
@@ -99,7 +99,7 @@ class SVGImage extends Image
      */
     public function getFormattedImage($format)
     {
-        if ($this->getExtension() === 'svg') {
+        if ($this->IsSVG()) {
             return $this;
         }
 
@@ -110,12 +110,9 @@ class SVGImage extends Image
     //
     // SVGTemplate integration
     //
-    public function IsSVG()
+    public function IsSVG(): bool
     {
-        if ($this->getExtension() === 'svg') {
-            return true;
-        }
-        return false;
+        return $this->getExtension() === 'svg';
     }
 
     public function SVG($id = null)
